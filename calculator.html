@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="calculator.css">
+	<script>
+		var firstnumber="";
+var secondnumber="";
+var operator="";
+function appendnum(num){
+	if (operator===""){
+		firstnumber=firstnumber+num;
+		document.getElementById("result").value=firstnumber;
+	}else{
+		secondnumber=secondnumber+num;
+		document.getElementById("result").value=secondnumber;
+	}
+}
+function operatorset(opt){
+	operator=opt;
+	document.getElementById("result").value=secondnumber;
+}
+	 var result="";
+function equalsto(){
+
+	switch(operator){
+
+		case '+':
+				result=parseInt(firstnumber)+parseInt(secondnumber);
+				break;
+		case '-':
+				result=parseInt(firstnumber)-parseInt(secondnumber);
+				break;
+		case '*':
+				result=parseInt(firstnumber)*parseInt(secondnumber);
+				break;
+		case '/':
+				result=parseInt(firstnumber)/parseInt(secondnumber);
+				break;
+
+	}
+	operator="";
+	firstnumber=result;
+	secondnumber="";
+document.getElementById("result").value=result;
+}
+
+function   clear1(){
+	document.getElementById("result").value="";
+	firstnumber="";
+	secondnumber="";
+	operator="";
+}
+	</script>
+</head>
+<body>
+	<center>
+		<div></div>
+	<h2>CALCULATOR</h2>
+	<input type="text" id="result" readonly value=''>
+	<table>
+		<tr>
+			<td><button onclick="appendnum(7)">7</button></td>
+			<td><button onclick="appendnum(8)">8</button></td>
+			<td><button onclick="appendnum(9)">9</button></td>
+			<td><button onclick="operatorset('+')">+</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="appendnum(4)">4</button></td>
+			<td><button onclick="appendnum(5)">5</button></td>
+			<td><button onclick="appendnum(6)">6</button></td>
+			<td><button onclick="operatorset('-')">-</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="appendnum(1)">1</button></td>
+			<td><button onclick="appendnum(2)">2</button></td>
+			<td><button onclick="appendnum(3)">3</button></td>
+			<td><button onclick="operatorset('*')">*</button></td>
+		</tr>
+		<tr>
+			<td><button onclick="clear1()">c</button></td>
+			<td><button onclick="appendnum(0)">0</button></td>
+			<td><button onclick="equalsto()">=</button></td>
+			<td><button onclick="operatorset('/')">/</button></td>
+		</tr>
+	</table>
+	</div>
+	</center>
+</body>
+</html>
